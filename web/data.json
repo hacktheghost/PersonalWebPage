@@ -1,0 +1,460 @@
+{
+  "personal": {
+    "fullName": "DANIEL ALEJANDRO FLORES MAYNEZ",
+    "title": "Senior IT Manager & Technology Leader",
+    "location": "Escobedo, Nuevo León, México",
+    "cvUrl": "/Daniel Maynez - IT Manager.pdf",
+    "contact": {
+      "phone": "+52 81 3528 2911",
+      "email": "danielfloresmaynez@gmail.com",
+      "linkedin": "www.linkedin.com/in/daniel-maynez-b143b4153"
+    }
+  },
+  "professionalSummary": "Accomplished Senior IT Manager with over 11 years of progressive leadership experience in the Information Technology sector, specializing in strategic infrastructure management, digital transformation, and cross-functional team leadership. Proven track record of managing multi-million dollar IT budgets, leading international teams, and driving operational efficiency across global manufacturing environments. Expert in vendor relationship management, change management, and implementing complex IT infrastructures including ERP systems (Sage X3, SAP), cloud computing (Microsoft Azure), and data analytics platforms (Power BI, SQL). Demonstrated ability to bridge business requirements with technical solutions while mentoring technical teams and managing organizational transitions. Strong background in performance management, budget administration, and employee development with certifications in strategic management and data-driven decision making.",
+  "experience": [
+    {
+      "role": "IT Manager",
+      "company": "COFICAB Group",
+      "period": "April 2024 – Present",
+      "location": "Pesquería, Nuevo León, Mexico",
+      "responsibilities": "Led comprehensive development and implementation of real-time production measurement systems utilizing Azure SQL databases and Power BI analytics dashboards, managing a team of technical specialists while overseeing project budgets exceeding $500K. Architected and deployed complex redundant backup infrastructure featuring Nutanix hyperconverged systems, collaborating with international vendors and managing multi-site implementations. Implemented advanced monitoring solutions using Grafana for real-time system performance tracking and MongoDB databases for scalable data management. Spearheaded digital transformation initiatives including digital signage software development, managing stakeholder expectations and ensuring seamless integration across manufacturing departments."
+    },
+    {
+      "role": "IT Manager",
+      "company": "Levare International Limited (formerly Borets International)",
+      "period": "January 2023 – April 2024",
+      "location": "Nuevo León, México",
+      "responsibilities": "Directed comprehensive IT infrastructure development for ESP pump manufacturing operations from plant inception through organizational transition, managing cross-cultural teams and international vendor relationships. Led strategic planning initiatives for technology roadmap development while overseeing annual IT budgets and resource allocation. Designed and implemented cutting-edge Cisco network infrastructures, managed strategic IT vendor negotiations, and successfully deployed integrated security systems including IP CCTV and access control solutions. Architected and deployed Sage X3 ERP system integration, developed custom internal applications using C++ and modern web technologies, and established efficient IT governance processes. Implemented Microsoft Azure cloud migration strategies, SQL Server database optimization, and Active Directory infrastructure redesign. Managed organizational change during company restructuring, ensuring seamless technology integration and maintaining operational excellence while mentoring junior IT staff."
+    },
+    {
+      "role": "IT Manager & Automation Engineer",
+      "company": "Daehan México",
+      "period": "July 2019 – January 2023",
+      "location": "Ciénega de Flores, Nuevo León, México",
+      "responsibilities": "Managed dual responsibilities encompassing comprehensive IT operations and industrial automation engineering, leading technical teams while coordinating with production management. Directed IT infrastructure operations including database management, networking, helpdesk supervision, software development oversight, server administration, and ERP system management. Simultaneously managed all PLC programming initiatives, maintenance schedules, and provided technical leadership for Pipe Forming Laser Machine operations and Panasonic robotics systems. Established training programs, managed vendor relationships, and developed SOPs for technical operations. Coordinated with Korean headquarters for technology transfer and international project management.",
+      "keyAchievements": [
+        "Successfully deployed Manufacturing Execution System (MES) enhancing production visibility",
+        "Designed and implemented comprehensive network infrastructure from ground up",
+        "Deployed and configured VMware virtual server environments optimizing resource utilization",
+        "Developed and launched company website (daehanmexico.com.mx) with full domain administration",
+        "Created and conducted comprehensive Panasonic Robot training programs",
+        "Implemented automated PLC backup systems ensuring data integrity",
+        "Directed corporate video production initiatives"
+      ]
+    },
+    {
+      "role": "System Administrator",
+      "company": "DONGHEE",
+      "period": "March 2018 – July 2019",
+      "location": "Pesquería, Nuevo León, México",
+      "responsibilities": "Administered comprehensive technology infrastructure including ERP systems, SAP implementations, database management, networking operations, server maintenance, access control systems, and CCTV operations. Ensured optimal performance and security of all technology assets across the organization."
+    },
+    {
+      "role": "IT Asset Coordinator & Technical Support",
+      "company": "Rent-A-Center",
+      "period": "August 2017 – March 2018",
+      "location": "México",
+      "responsibilities": "Coordinated IT asset management and provided technical support services across corporate headquarters and nationwide network of over 250 retail locations. Managed inventory tracking, deployment logistics, and provided comprehensive technical assistance to ensure operational continuity across all facilities."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Engineering in Mechatronics Engineering",
+      "institution": "Universidad Autónoma de Nuevo León"
+    },
+    {
+      "degree": "Technical Degree in Mechatronics, Robotics, and Automation Engineering",
+      "institution": "Universidad Autónoma de Nuevo León"
+    }
+  ],
+  "coreCompetencies": {
+    "Leadership & Management": [
+      "Strategic IT Planning & Technology Roadmap Development",
+      "Cross-Functional Team Leadership & Mentoring",
+      "Budget Management & Resource Allocation",
+      "Vendor Relationship Management & Contract Negotiation",
+      "Change Management & Organizational Transformation",
+      "Performance Management & Employee Development",
+      "International Project Management & Coordination"
+    ],
+    "Cloud & Data Analytics": [
+      "Microsoft Azure Cloud Architecture & Migration",
+      "Azure SQL Database Administration",
+      "Microsoft Power BI Dashboard Development",
+      "Business Intelligence & Reporting Solutions",
+      "MongoDB Database Design & Management",
+      "Data Analysis & Performance Metrics",
+      "Grafana Monitoring & Visualization"
+    ],
+    "Infrastructure & Networking": [
+      "Enterprise Network Design & Implementation",
+      "VMware & Nutanix Hyperconverged Systems",
+      "Cisco Infrastructure & CCNA Certified Operations",
+      "Linux/Windows Server Administration",
+      "Disaster Recovery & Business Continuity Planning",
+      "IT Governance & Compliance Management"
+    ],
+    "Enterprise Systems & ERP": [
+      "Sage X3 ERP Implementation & Change Management",
+      "SAP Operations & Process Optimization",
+      "Manufacturing Execution Systems (MES)",
+      "Microsoft Office Suite & SharePoint Administration",
+      "Database Architecture & Optimization",
+      "System Integration & API Development"
+    ],
+    "Development & Technical Skills": [
+      "C++ Application Development & Maintenance",
+      "SQL Server Database Programming",
+      "Web Development & Modern Framework Implementation",
+      "Custom Software Solutions & Technical Documentation",
+      "Azure DevOps & Version Control Systems",
+      "Technical Writing & Standard Operating Procedures"
+    ],
+    "Security & Industrial Automation": [
+      "Cybersecurity Strategy & Fortinet Solutions (NSE4)",
+      "IP CCTV System Design & Security Management",
+      "Access Control Systems & Physical Security",
+      "PLC Programming & Industrial Automation",
+      "Robotics Systems Integration (Panasonic)",
+      "Production Monitoring & Process Control"
+    ]
+  },
+  "certifications": [
+    {
+      "name": "Fortinet 7.X (FortiOS) - NSE4",
+      "issuer": "Udemy",
+      "date": "September 2024"
+    },
+    {
+      "name": "Cybersecurity Professional",
+      "issuer": "Universidad Autónoma de Nuevo León",
+      "date": "December 2022"
+    },
+    {
+      "name": "Cisco CCNA Network Fundamentals",
+      "issuer": "Udemy",
+      "date": "October 2024"
+    },
+    {
+      "name": "CompTIA A+ Core 1 Certification Series",
+      "issuer": "Skillsoft",
+      "date": "May 2025"
+    },
+    {
+      "name": "Comprehensive Monitoring with Grafana",
+      "issuer": "Skillsoft",
+      "date": "May 2025"
+    },
+    {
+      "name": "Employee Development & Learning",
+      "issuer": "Harvard Business Review",
+      "date": "October 2024"
+    },
+    {
+      "name": "AI/ML Data Strategy & Management",
+      "issuer": "Skillsoft",
+      "date": "May 2025"
+    }
+  ],
+  "languagesAndAdditional": {
+    "languages": [
+      { "language": "Spanish", "proficiency": "Native" },
+      { "language": "English", "proficiency": "Full Professional Proficiency" }
+    ],
+    "technicalEndorsements": "Recognized expertise in IP CCTV Systems, Technical Support, Programming, Microsoft SQL Server, and Windows Server with peer endorsements from industry professionals.",
+    "leadershipPhilosophy": "Passionate about driving digital transformation in manufacturing environments through strategic technology leadership and team empowerment. Committed to fostering innovation through cross-functional collaboration, continuous learning, and data-driven decision making. Experienced in managing multicultural teams, international vendor relationships, and complex organizational change initiatives.",
+    "professionalFocus": "Specializes in bridging business objectives with technical solutions, managing enterprise-level IT transformations, and developing high-performance technical teams. Expert in budget optimization, risk management, and implementing scalable technology solutions that support business growth and operational excellence."
+  },
+  "projects": {
+    "skillsOverview": {
+      "Frontend": [
+        "React 18/19",
+        "Next.js 14–15 (App Router)",
+        "TypeScript",
+        "Tailwind CSS",
+        "Material-UI",
+        "Shadcn/ui",
+        "React Hook Form",
+        "Zod"
+      ],
+      "Backend": [
+        "Node.js (Express, TypeScript)",
+        "FastAPI",
+        "NextAuth",
+        "JWT",
+        "Joi"
+      ],
+      "Datos": [
+        "SQL Server (ORM Prisma y drivers mssql)",
+        "SQLAlchemy",
+        "Pandas"
+      ],
+      "ML/Visión": [
+        "YOLOv8",
+        "OpenVINO",
+        "procesamiento RTSP/ONVIF"
+      ],
+      "Infra/Automatización": [
+        "APScheduler",
+        "PM2 (men)",
+        "Docker (básico)"
+      ],
+      "Desktop/GUI": [
+        "Python + CustomTkinter"
+      ],
+      "Redes": [
+        "SSH Cisco",
+        "análisis de configuraciones",
+        "reportes HTML/Excel"
+      ]
+    },
+    "portfolio": [
+      {
+        "name": "Facilities Management System",
+        "name_es": "Gestión de Facilities",
+        "role": "Full‑stack (lead)",
+        "technologies": [
+          "Next.js 15",
+          "React 19",
+          "Tailwind",
+          "Shadcn/ui",
+          "Prisma",
+          "SQL Server",
+          "NextAuth",
+          "Zod",
+          "RHF"
+        ],
+        "businessLogic": "Registro y gestión de incidencias (tickets), integración con HR para autocompletado de empleados, fotos adjuntas, estados y trazabilidad.",
+        "architecture": "Frontend Next App Router + API routes; ORM Prisma a SQL Server; autenticación y autorización por roles.",
+        "achievements": [
+          "Implementación completa de formulario público de incidencias con validaciones y preview de imágenes",
+          "Integración con sistema HR para autocompletar y validar empleados",
+          "Generación de identificadores de ticket consistentes y trazables",
+          "Base para panel administrativo y tablero Kanban (siguientes fases)"
+        ],
+        "status": "En desarrollo activo"
+      },
+      {
+        "name": "COFICAB HR Data Management",
+        "name_es": "Autoservicio de RRHH",
+        "role": "Full‑stack",
+        "technologies": [
+          "Next.js 15 (TS)",
+          "Express + TypeScript",
+          "SQL Server",
+          "Axios",
+          "Zod/Joi",
+          "i18n (4 idiomas)"
+        ],
+        "businessLogic": "Actualización segura de datos de empleados (incl. familiares) por autoservicio, con autenticación previa y validaciones estrictas, más panel administrativo con logs.",
+        "architecture": "Frontend Next + API Node/Express; validaciones espejo (frontend y backend); esquema SQL normalizado.",
+        "achievements": [
+          "Flujo de autenticación por identificador personal con reintentos controlados",
+          "Validaciones avanzadas y formularios dinámicos (selectores dependientes y búsquedas)",
+          "Panel admin con filtros, auditoría de cambios y comentarios"
+        ],
+        "status": "Operativo y documentado"
+      },
+      {
+        "name": "IT Asset Inventory",
+        "name_es": "Inventario de Activos de IT",
+        "role": "Full‑stack",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "Material‑UI",
+          "Node.js + Express (TS)",
+          "SQL Server",
+          "JWT",
+          "ExcelJS",
+          "PDFKit",
+          "QRCode"
+        ],
+        "businessLogic": "Gestión integral del ciclo de vida de activos (alta, asignación, software, mantenimientos, historial), con identificación vía QR y reportes exportables.",
+        "architecture": "Monorepo cliente/servidor, scripts de setup y migración, reporting (Excel/PDF), RBAC básico.",
+        "achievements": [
+          "Generación y escaneo de QR para identificación rápida en campo",
+          "Programación de mantenimientos y alertas",
+          "Exportes de datos a Excel y PDF para auditoría"
+        ],
+        "status": "En operación"
+      },
+      {
+        "name": "Sistema de Prevención de Colisiones",
+        "name_es": "Cámaras IP/NVR",
+        "role": "Desarrollador de visión por computador",
+        "technologies": [
+          "Python 3.8+",
+          "YOLOv8",
+          "OpenVINO",
+          "RTSP/ONVIF",
+          "multiprocessing"
+        ],
+        "businessLogic": "Detección de vehículos y bobinas, seguimiento y alerta visual en tiempo real para seguridad industrial.",
+        "architecture": "Selector gráfico de cámaras ONVIF; pipeline de inferencia optimizada; visualización en grid con overlays.",
+        "achievements": [
+          "Interfaz para selección masiva de cámaras y configuración de procesamiento",
+          "Detección en tiempo real con optimización de rendimiento",
+          "Alertas visuales y métricas de desempeño"
+        ],
+        "status": "Operativo con mejoras continuas"
+      },
+      {
+        "name": "Gestión de Inventarios Kanban y Seguimiento de Bobinas",
+        "name_es": "IA YOLO personalizado",
+        "role": "Computer Vision / MLOps",
+        "technologies": [
+          "Python",
+          "YOLOv8 (entrenamiento personalizado)",
+          "PyTorch",
+          "OpenVINO",
+          "RTSP/ONVIF",
+          "tracking multi‑objeto"
+        ],
+        "businessLogic": "Conteo automatizado de bobinas de cobre, seguimiento persistente y gestión de inventario con tablero Kanban (estados, movimientos, auditoría), reduciendo captura manual y errores operativos.",
+        "architecture": "Pipeline de entrenamiento con datasets propietarios y anotación controlada; versionado de datasets y modelos; servicio de inferencia en tiempo real; persistencia de IDs/estados; tablero Kanban para operaciones.",
+        "achievements": [
+          "Modelos YOLO entrenados con datasets propietarios, optimizados para el dominio",
+          "Tracking estable con IDs persistentes y reconciliación de eventos de conteo",
+          "Integración de conteo en tiempo real con estados Kanban operativos"
+        ],
+        "status": "Operativo"
+      },
+      {
+        "name": "Web Dependency Analyzer",
+        "name_es": "FortiGate",
+        "role": "Backend/CLI Python",
+        "technologies": [
+          "Python",
+          "Selenium (opcional)",
+          "resolución DNS",
+          "salida JSON/CSV"
+        ],
+        "businessLogic": "Descubrimiento y clasificación de dependencias web para endurecimiento y reglas de firewall.",
+        "architecture": "CLI con modos de salida múltiples; base de servicios conocidos; escaneo profundo opcional.",
+        "achievements": [
+          "Categorización automática (analytics, CDN, pagos, etc.)",
+          "Generación de artefactos listos para consumo (CSV/JSON/formato FortiGate)"
+        ],
+        "status": "En desarrollo (core avanzado)"
+      },
+      {
+        "name": "Cisco Switch Analyzer",
+        "name_es": "NetworkCheck",
+        "role": "Automation/Networking",
+        "technologies": [
+          "Python",
+          "SSH",
+          "generación de reportes HTML/Excel",
+          "comparador de respaldos"
+        ],
+        "businessLogic": "Auditoría de configuración de switches Cisco, detección de errores y mejores prácticas, respaldo y diff.",
+        "architecture": "CLI interactivo, gestor de respaldos con indexado y comparación.",
+        "achievements": [
+          "Descubrimiento por rango, validaciones de seguridad y cumplimiento",
+          "Reportes claros (HTML/Excel) y diagramas de topología",
+          "Módulo de respaldos con comparación histórica"
+        ],
+        "status": "Estable; credenciales de acceso parametrizables (no embebidas)"
+      },
+      {
+        "name": "ResourceChecker",
+        "name_es": "Desktop",
+        "role": "Dev Desktop Python",
+        "technologies": [
+          "Python",
+          "CustomTkinter",
+          "SQLite embebida"
+        ],
+        "businessLogic": "Diagnóstico y monitoreo de recursos de equipos (CPU, RAM, disco, red) con navegación modular.",
+        "architecture": "GUI modular (dashboard, scanners), base local para métricas e informes.",
+        "achievements": [
+          "Aplicación portable con dashboard en tiempo real",
+          "Base para módulos de hardware, software, drivers y red"
+        ],
+        "status": "Fase 1 completa; módulos avanzados en progreso"
+      },
+      {
+        "name": "SQL Reporter",
+        "name_es": "Automatización de Reportes SQL",
+        "role": "Full‑stack",
+        "technologies": [
+          "FastAPI",
+          "SQLAlchemy",
+          "Pandas",
+          "APScheduler",
+          "React",
+          "Material‑UI",
+          "Monaco Editor"
+        ],
+        "businessLogic": "Configurar, ejecutar y programar consultas SQL multi‑motor; exportar a Excel y enviar por correo.",
+        "architecture": "Backend FastAPI con scheduler y servicio de correo; frontend React para edición y administración.",
+        "achievements": [
+          "Soporte para múltiples bases (SQL Server, PostgreSQL, MySQL)",
+          "Editor SQL con vista previa y programación flexible",
+          "Entrega automática por email con plantillas"
+        ],
+        "status": "Funcional"
+      },
+      {
+        "name": "Budget Control",
+        "name_es": "BudgetControll",
+        "role": "Backend/Server‑side Rendering",
+        "technologies": [
+          "Node.js + Express",
+          "EJS (SSR)",
+          "Multer",
+          "SQL Server",
+          "Day.js"
+        ],
+        "businessLogic": "Gestión de presupuestos/POs con carga de comprobantes y vistas renderizadas en servidor.",
+        "architecture": "Express + EJS, almacenamiento de archivos (uploads) y acceso a SQL Server.",
+        "achievements": [
+          "Flujo de carga de archivos robusto y validado",
+          "Páginas EJS para flujos operativos simples y rápidos"
+        ],
+        "status": "En uso"
+      }
+    ],
+    "otherSelectedProjects": [
+      {
+        "name": "HR App",
+        "description": "Suite adicional de RRHH (frontend/back).",
+        "stack": "React/Next + Node/Express + SQL Server"
+      },
+      {
+        "name": "Paperless",
+        "description": "Gestión documental web full‑stack con carga/consulta de documentos.",
+        "stack": "Node + Frontend"
+      },
+      {
+        "name": "Purchasing",
+        "description": "Servicio para soporte de compras con frontend básico + API.",
+        "stack": "Node.js"
+      },
+      {
+        "name": "Buncher KPI Report / ReportDownload (Desktop)",
+        "description": "Herramientas Windows para generación/descarga de reportes de KPIs.",
+        "distribution": "Instalador/ClickOnce"
+      },
+      {
+        "name": "Modbus TG Connectors",
+        "description": "Conectores/servicios para equipos industriales vía Modbus.",
+        "stack": "Python"
+      },
+      {
+        "name": "Sales Report",
+        "description": "Automatización de reportes comerciales.",
+        "stack": "Python/CSV/Excel, scripts por lotes"
+      }
+    ],
+    "securityAndPrivacyNotes": [
+      "No se incluyen credenciales, servidores, instancias, direcciones ni datos personales.",
+      "Variables de entorno y configuraciones sensibles están externalizadas.",
+      "Bases de datos y esquemas se manejan conforme a buenas prácticas (principio de mínimo privilegio y logging controlado)."
+    ],
+    "contactNote": "Disponible para detallar implementaciones técnicas o métricas de impacto bajo NDA si aplica."
+  }
+}
+
+

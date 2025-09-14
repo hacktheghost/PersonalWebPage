@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply font-mono bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+  margin: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Sombra sutil para mejorar legibilidad sobre partículas */
+.text-shadow-soft {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+/* Borde "serpiente": trazo que se desplaza alrededor del marco (SVG) */
+@keyframes snake-dash {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -880; }
+}
+
+.snake-stroke {
+  stroke-linecap: round;
+  stroke-dasharray: 220 20 10 20; /* patrón de guiones para efecto serpenteante */
+  animation: snake-dash 6s linear infinite;
+}
+
+/* Animación de entrada para modal móvil */
+@keyframes modal-up {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-modal-up {
+  animation: modal-up 200ms ease-out both;
+}
+
+/* Drawer móvil del menú hamburguesa */
+@keyframes drawer-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-drawer-in {
+  animation: drawer-in 200ms ease-out both;
+}
+
+/* Animación de ítems del drawer */
+@keyframes item-in {
+  from { transform: translateX(12px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-item-in {
+  animation: item-in 220ms ease-out both;
+}
+
+/* Gradientes globales más notorios (claro/oscuro) */
+.bg-gradient-global-light {
+  background-image:
+    linear-gradient(to bottom, rgba(106,173,182,0.20) 0%, rgba(106,173,182,0.10) 25%, rgba(106,173,182,0.06) 45%, transparent 75%),
+    radial-gradient(800px 400px at 20% 10%, rgba(106,173,182,0.25), transparent 60%);
+  background-repeat: no-repeat;
+}
+
+.bg-gradient-global-dark {
+  background-image:
+    linear-gradient(to bottom, rgba(137,201,209,0.16) 0%, rgba(137,201,209,0.10) 30%, rgba(51,65,85,0.20) 60%, transparent 85%),
+    radial-gradient(900px 450px at 80% 15%, rgba(137,201,209,0.20), transparent 60%);
+  background-repeat: no-repeat;
+}
+
+
