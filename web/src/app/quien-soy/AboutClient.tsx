@@ -1,6 +1,7 @@
 "use client";
 import { useI18n } from '@/i18n/ClientI18nProvider';
 import { useLocalizedSiteData } from '@/i18n/useSiteData';
+import Image from 'next/image';
 
 export default function AboutClient() {
   const { t } = useI18n();
@@ -9,6 +10,16 @@ export default function AboutClient() {
   const competencies = Object.entries(coreCompetencies) as [string, string[]][];
   return (
     <main className="mx-auto max-w-3xl px-4 py-16">
+      <div className="relative mb-6 -mt-4 aspect-[21/9] w-full overflow-hidden rounded-lg border border-gray-200/60 bg-gray-100 dark:border-gray-800/60 dark:bg-gray-900">
+        <Image
+          src="/whoami.jpg"
+          alt="Foto de portada — ¿Quién soy?"
+          fill
+          priority={false}
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 768px"
+        />
+      </div>
       <header>
         <h1 className="text-3xl sm:text-4xl font-semibold">{t('about.title')}</h1>
         <p className="mt-2 text-gray-600 dark:text-gray-300">{personal.fullName} — {personal.title}</p>
