@@ -1,13 +1,14 @@
 import { getProjects } from '@/lib/data';
+import { slugifyProjectName } from '@/lib/slug';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
-  return getProjects().map((p) => ({ slug: encodeURIComponent(p.name) }));
+  return getProjects().map((p) => ({ slug: slugifyProjectName(p.name) }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProjects().find((p) => encodeURIComponent(p.name) === slug);
+  const project = getProjects().find((p) => slugifyProjectName(p.name) === slug);
   return {
     title: project ? `${project.name_es ?? project.name} — Proyecto` : 'Proyecto',
   };
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = getProjects().find((p) => encodeURIComponent(p.name) === slug);
+  const project = getProjects().find((p) => slugifyProjectName(p.name) === slug);
   if (!project) return <main className="mx-auto max-w-3xl px-4 py-16">No encontrado</main>;
 
   return (

@@ -10,8 +10,26 @@ import GlobalSpinner from '@/components/GlobalSpinner';
 import ClientI18nProvider from '@/i18n/ClientI18nProvider';
 
 export const metadata: Metadata = {
-  title: 'Daniel A. Flores — Senior IT Manager & Technology Leader',
+  title: 'Daniel Flores — IT Leader & Technology Manager',
   description: 'Portafolio profesional: manufactura, nube, datos, ERP, seguridad y automatización.',
+  metadataBase: new URL('https://hacktheghost.github.io'),
+  openGraph: {
+    title: 'Daniel Flores — IT Leader & Technology Manager',
+    description: 'Portafolio profesional: manufactura, nube, datos, ERP, seguridad y automatización.',
+    url: 'https://hacktheghost.github.io/',
+    siteName: 'Daniel Flores',
+    images: [
+      { url: '/whoami.jpg', width: 1200, height: 630, alt: 'Daniel Flores — IT Leader' },
+    ],
+    locale: 'es_MX',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Daniel Flores — IT Leader & Technology Manager',
+    description: 'Portafolio profesional: manufactura, nube, datos, ERP, seguridad y automatización.',
+    images: ['/whoami.jpg'],
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
