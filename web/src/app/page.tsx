@@ -7,6 +7,7 @@ import RotatingTitles from '@/components/RotatingTitles';
 import ProfilePhoto from '@/components/ProfilePhoto';
 import { useI18n } from '@/i18n/ClientI18nProvider';
 import { useLocalizedSiteData } from '@/i18n/useSiteData';
+import TransText from '@/i18n/TransText';
 
 export default function HomePage() {
   const data = getSiteData();
@@ -47,7 +48,7 @@ export default function HomePage() {
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-2xl sm:text-3xl font-semibold">{t('home.featured.title')}</h2>
+        <h2 className="text-2xl sm:text-3xl font-semibold"><TransText k="home.featured.title" /></h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {stars.map((p) => (
             <a key={p.name} href={`/proyectos/${encodeURIComponent(p.name)}`} className="group overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 hover:border-secondary/60 transition">

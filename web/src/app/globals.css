@@ -30,6 +30,39 @@ body {
   animation: snake-dash 6s linear infinite;
 }
 
+/* Sheen moderno para marca en header */
+@keyframes brand-sheen-move {
+  from { transform: translateX(-160%) skewX(-18deg); }
+  to { transform: translateX(160%) skewX(-18deg); }
+}
+
+.brand-sheen {
+  position: absolute;
+  inset: 1px; /* alinea con grosor del ring para igualar tamaño visual */
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.brand-sheen::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: 0;
+  width: 80%;
+  height: 240%;
+  transform: translateX(-160%) skewX(-18deg);
+  background: linear-gradient(90deg,
+    rgba(148,163,184,0.10) 0%,
+    rgba(148,163,184,0.18) 38%,
+    currentColor 50%,
+    rgba(148,163,184,0.18) 62%,
+    rgba(148,163,184,0.10) 100%);
+  opacity: 0.35;
+  animation: brand-sheen-move 2.6s linear infinite;
+  border-radius: inherit;
+}
+
 /* Animación de entrada para modal móvil */
 @keyframes modal-up {
   from { transform: translateY(16px); opacity: 0; }

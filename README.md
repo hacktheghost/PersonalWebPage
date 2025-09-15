@@ -11,7 +11,7 @@
   <img alt="Vercel" src="https://img.shields.io/badge/%E2%96%B2%20Vercel-ready-black?logo=vercel&logoColor=white" />
 </p>
 
-Sitio personal construido con Next.js (App Router), TypeScript y Tailwind CSS. Incluye animaciones con Framer Motion, partículas de fondo con tsParticles y desplazamiento suave con Lenis.
+Sitio personal construido con Next.js (App Router), TypeScript y Tailwind CSS. Incluye animaciones con Framer Motion, partículas de fondo con tsParticles y desplazamiento suave con Lenis. Soporta multi‑idioma (ES/EN) con archivos JSON y un provider de i18n en cliente.
 
 ---
 
@@ -46,6 +46,14 @@ personalpage/
 │  │  │  │  └─ [slug]/page.tsx
 │  │  │  └─ quien-soy/page.tsx
 │  │  ├─ components/ (UI y elementos reutilizables)
+│  │  ├─ i18n/
+│  │  │  ├─ ClientI18nProvider.tsx
+│  │  │  ├─ LocaleAnimatedShell.tsx
+│  │  │  ├─ TransText.tsx
+│  │  │  └─ useSiteData.ts
+│  │  ├─ messages/
+│  │  │  ├─ en.json
+│  │  │  └─ es.json
 │  │  └─ lib/
 │  ├─ data.json
 │  ├─ next.config.ts
@@ -79,17 +87,22 @@ Scripts disponibles en `web/package.json`:
 ### 🎨 Estilos y UI
 - Tailwind configurado en `web/tailwind.config.ts` con `darkMode: 'class'` y colores extendidos.
 - Estilos globales en `web/src/app/globals.css`.
+  - Animación “sheen” de la marca (`.brand-sheen`).
+  - Animación de borde serpenteante (`.snake-stroke`).
 
 ---
 
 ### 🧩 Componentes destacados
-- `ContactModal.tsx`, `ExperienceTimeline.tsx`, `ParticlesBackground.tsx`, `TechBadges.tsx`, entre otros, ubicados en `web/src/components/`.
+- `Header.tsx`: navegación con selector de idioma (MX/US via flag‑icons), tema y acceso rápido.
+- `ParticlesBackground.tsx`: partículas sincronizadas con cambios de tema e idioma.
+- `ProfilePhoto.tsx`: imagen optimizada (`next/image`) y borde animado consistente con paleta.
+- `ExperienceTimeline.tsx`, `TechBadges.tsx`, `ContactModal.tsx`, entre otros.
 - Datos y utilidades en `web/src/lib/` y `web/data.json`.
 
 ---
 
 ### ⚙️ Configuración
-- Tipado y rutas tipadas: `web/tsconfig.json` (paths `@/components/*`, `@/lib/*`, `@/app/*`).
+- Tipado y rutas tipadas: `web/tsconfig.json` (paths `@/components/*`, `@/lib/*`, `@/app/*`, `@/i18n/*`, `@/messages/*`).
 - Next.js: `web/next.config.ts` (`reactStrictMode: true`, `typedRoutes: true`).
 
 ---
@@ -104,6 +117,28 @@ Ejemplo:
 # web/.env.local
 NEXT_PUBLIC_ANALYTICS_ID=xxxxxx
 ```
+
+---
+
+### 🌍 Internacionalización (i18n)
+- Archivos de mensajes: `web/src/messages/es.json`, `web/src/messages/en.json`.
+- Provider en cliente: `web/src/i18n/ClientI18nProvider.tsx` (expone `useI18n()` con `{ locale, setLocale, t, messages }`).
+- Datos localizados: `useLocalizedSiteData()` devuelve `messages.data` con la misma forma que `data.json`.
+- Animaciones de idioma:
+  - Crossfade global por `locale` vía `LocaleAnimatedShell` (Framer Motion) en `layout.tsx`.
+  - Micro‑animación en textos con `TransText` (swap fade+blur corto).
+  - `ParticlesBackground` escucha `languagechange` para refrescar suavemente.
+- Selector de idioma:
+  - Desktop: pill animado con banderas (flag‑icons por CDN en `<head>`).
+  - Mobile: dropdown accesible dentro del menú.
+
+Agregar un nuevo idioma:
+1. Crear `web/src/messages/<locale>.json` con la misma estructura.
+2. Registrar en `ClientI18nProvider` (mapa `MESSAGES`).
+3. Añadir opción en el selector de idioma (Header).
+
+Notas SSR/CSR:
+- `useI18n()` es de cliente; no invocarlo en componentes de servidor. Para SSR usa wrappers cliente (p.ej., `ProjectsClient`).
 
 ---
 
@@ -129,7 +164,14 @@ npm start
 ### 🖼️ Personalización rápida
 - Reemplaza `web/public/profile.jpg` por tu foto.
 - Sustituye o renombra el PDF en `web/public/` si cambias tu CV.
-- Ajusta textos y datos en `web/src/app/*`, `web/src/lib/*` y `web/data.json`.
+- Ajusta textos y datos en `web/src/app/*`, `web/src/lib/*`, `web/src/messages/*` y `web/data.json`.
+
+---
+
+### ♿ Accesibilidad y buenas prácticas
+- Evitar usar hooks de cliente en server components (para prevenir errores de hidratación).
+- Mantener jerarquía semántica correcta (no anidar `div` dentro de `p`).
+- Idioma persistido en `localStorage` y `cookie` (`locale=es|en`).
 
 ---
 

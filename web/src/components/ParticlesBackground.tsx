@@ -21,7 +21,9 @@ export default function ParticlesBackground() {
     update();
     mq.addEventListener?.('change', update);
     const onThemeChange = () => { update(); setKey((k) => k + 1); };
+    const onLanguageChange = () => { setKey((k) => k + 1); };
     window.addEventListener('themechange', onThemeChange);
+    window.addEventListener('languagechange', onLanguageChange as EventListener);
     return () => mq.removeEventListener?.('change', update);
   }, []);
   // Máxima visibilidad: en claro color muy oscuro; en oscuro cian suave

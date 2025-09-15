@@ -44,6 +44,7 @@ export default function ClientI18nProvider({ children, initialLocale = 'es' as L
       localStorage.setItem('locale', loc);
       document.documentElement.setAttribute('lang', loc);
       document.cookie = `locale=${loc}; path=/; max-age=${60 * 60 * 24 * 365}`;
+      window.dispatchEvent(new CustomEvent('languagechange', { detail: { locale: loc } }));
     }
   }, []);
 
