@@ -1,11 +1,14 @@
-import { getSiteData } from '@/lib/data';
+"use client";
+import { useI18n } from '@/i18n/ClientI18nProvider';
+import { useLocalizedSiteData } from '@/i18n/useSiteData';
 
 export default function ExperienceTimeline() {
-  const data = getSiteData();
+  const { t } = useI18n();
+  const data = useLocalizedSiteData();
   const exp = data.experience;
   return (
     <section className="mt-12">
-      <h2 className="text-xl sm:text-2xl font-semibold">Experiencia</h2>
+      <h2 className="text-xl sm:text-2xl font-semibold">{t('experience.title')}</h2>
       <ol className="mt-6 relative border-l border-gray-200 dark:border-gray-800">
         {exp.map((e) => (
           <li key={e.company + e.period} className="mb-8 ml-4">

@@ -1,23 +1,16 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-
-const TITLES = [
-  'Senior IT Manager & Technology Leader',
-  'Infraestructura resiliente — Cisco, Nutanix, VMware',
-  'Cloud & Data — Azure, SQL, Power BI, Grafana',
-  'ERP & Integración — Sage X3, SAP, Infor LN',
-  'Sistemas MES Personalizados — Integración OT/IT',
-  'Seguridad & OT — Fortinet NSE4, CCTV, Control de Accesos',
-  'Transformación Digital en Manufactura',
-];
+import { useI18n } from '@/i18n/ClientI18nProvider';
 
 export default function RotatingTitles() {
+  const { list } = useI18n();
   const [index, setIndex] = useState(0);
+  const TITLES = useMemo(() => list('home.hero.titles'), [list]);
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % TITLES.length), 2800);
+    const id = setInterval(() => setIndex((i) => (i + 1) % (TITLES.length || 1)), 2800);
     return () => clearInterval(id);
-  }, []);
+  }, [TITLES.length]);
 
   return (
     <div className="relative h-10 sm:h-12 overflow-hidden">

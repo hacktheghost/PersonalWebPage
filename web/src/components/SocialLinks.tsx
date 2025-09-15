@@ -1,4 +1,5 @@
 import { getSiteData } from '@/lib/data';
+import { useI18n } from '@/i18n/ClientI18nProvider';
 
 function IconLinkedIn(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -27,15 +28,16 @@ function IconPhone(props: React.SVGProps<SVGSVGElement>) {
 export default function SocialLinks({ className = '' }: { className?: string }) {
   const data = getSiteData();
   const { email, linkedin, phone } = data.personal.contact;
+  const { t } = useI18n();
   return (
-    <nav aria-label="Redes sociales" className={`flex items-center gap-3 ${className}`}>
-      <a href={`mailto:${email}`} aria-label="Email" className="text-gray-600 hover:text-secondary dark:text-gray-300" target="_blank" rel="noopener noreferrer">
+    <nav aria-label={t('social.aria.nav')} className={`flex items-center gap-3 ${className}`}>
+      <a href={`mailto:${email}`} aria-label={t('social.aria.email')} className="text-gray-600 hover:text-secondary dark:text-gray-300" target="_blank" rel="noopener noreferrer">
         <IconMail className="h-5 w-5" />
       </a>
-      <a href={`https://${linkedin}`} aria-label="LinkedIn" className="text-gray-600 hover:text-secondary dark:text-gray-300" target="_blank" rel="noopener noreferrer">
+      <a href={`https://${linkedin}`} aria-label={t('social.aria.linkedin')} className="text-gray-600 hover:text-secondary dark:text-gray-300" target="_blank" rel="noopener noreferrer">
         <IconLinkedIn className="h-5 w-5" />
       </a>
-      <a href={`tel:${phone}`} aria-label="Teléfono" className="text-gray-600 hover:text-secondary dark:text-gray-300">
+      <a href={`tel:${phone}`} aria-label={t('social.aria.phone')} className="text-gray-600 hover:text-secondary dark:text-gray-300">
         <IconPhone className="h-5 w-5" />
       </a>
     </nav>

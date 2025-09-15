@@ -22,7 +22,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
     <main className="mx-auto max-w-3xl px-4 py-16">
       <div className="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800">
         <div className="aspect-video w-full bg-gray-100 dark:bg-gray-800">
-          <img loading="lazy" src="/placeholder-project.jpg" alt="Imagen del proyecto" className="h-full w-full object-cover" />
+          <img loading="lazy" src="/placeholder.webp" alt="Imagen del proyecto" className="h-full w-full object-cover" />
         </div>
       </div>
       <h1 className="mt-6 text-3xl font-semibold">{project.name_es ?? project.name}</h1>

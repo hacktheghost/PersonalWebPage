@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { getSiteData } from '@/lib/data';
+import { useI18n } from '@/i18n/ClientI18nProvider';
 
 function IconHome(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -86,6 +87,9 @@ function IconMoon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+function FlagES() { return <span className="fi fi-mx" aria-hidden />; }
+function FlagEN() { return <span className="fi fi-us" aria-hidden />; }
+
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -95,6 +99,7 @@ export default function Header() {
   const [mounted, setMounted] = useState(false);
   const data = getSiteData();
   const cvUrl = (data as any)?.personal?.cvUrl || '/cv.pdf';
+  const { t, locale, setLocale } = useI18n();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -136,38 +141,57 @@ export default function Header() {
 
   return (
     <header className={`sticky top-0 z-20 border-b border-transparent backdrop-blur transition-colors ${scrolled ? 'bg-white/70 dark:bg-gray-950/70 border-gray-200/60 dark:border-gray-800/60' : 'bg-transparent'}`}>
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="/" className="inline-flex items-center gap-2 rounded-md px-2 py-1 text-base font-bold tracking-wide text-gray-900 ring-1 ring-gray-200/60 backdrop-blur-sm bg-white/70 dark:text-gray-100 dark:ring-gray-800/60 dark:bg-gray-900/50">
+      <div className="mx-auto grid max-w-6xl grid-cols-12 items-center gap-2 px-4 py-3">
+        <a href="/" className="col-span-5 sm:col-span-3 inline-flex items-center gap-2 rounded-md px-2 py-1 text-base font-bold tracking-wide text-gray-900 ring-1 ring-gray-200/60 backdrop-blur-sm bg-white/70 dark:text-gray-100 dark:ring-gray-800/60 dark:bg-gray-900/50">
           <IconHome className="h-5 w-5 text-secondary" />
-          <span>Daniel A. Flores</span>
+          <span>{t('brand.name')}</span>
         </a>
 
-        <div className="flex items-center gap-3">
-          <nav className="hidden gap-6 sm:flex text-sm items-center">
-            <a href="/proyectos" className={`inline-flex items-center gap-2 relative transition-colors ${pathname?.startsWith('/proyectos') ? 'text-secondary' : 'hover:text-secondary'}`}>
-              <IconGrid className="h-4 w-4" />
-              <span>Proyectos</span>
-              <span aria-hidden className={`absolute -bottom-2 left-0 h-0.5 w-full origin-left scale-x-0 bg-secondary transition-transform duration-300 ${pathname?.startsWith('/proyectos') ? 'scale-x-100' : 'group-hover:scale-x-100'}`}></span>
-            </a>
-            <a href="/quien-soy" className={`inline-flex items-center gap-2 relative transition-colors ${pathname === '/quien-soy' ? 'text-secondary' : 'hover:text-secondary'}`}>
-              <IconUser className="h-4 w-4" />
-              <span>¿Quién soy?</span>
-              <span aria-hidden className={`absolute -bottom-2 left-0 h-0.5 w-full origin-left scale-x-0 bg-secondary transition-transform duration-300 ${pathname === '/quien-soy' ? 'scale-x-100' : 'group-hover:scale-x-100'}`}></span>
-            </a>
-          </nav>
-
-          <a href={cvUrl} download className="hidden md:inline-flex items-center gap-2 rounded-md border border-secondary/40 px-3 py-1.5 text-sm hover:bg-secondary/10 transition" title="Descargar CV">
-            <IconDownload className="h-4 w-4" />
-            <span>Descargar CV</span>
+        <nav className="col-span-4 hidden md:flex items-center justify-center gap-6 text-sm">
+          <a href="/" className={`group inline-flex items-center gap-2 relative transition-colors ${pathname === '/' ? 'text-secondary' : 'hover:text-secondary'}`}>
+            <IconHome className="h-4 w-4" />
+            <span>{t('header.mobile.home')}</span>
+            <span aria-hidden className={`absolute -bottom-2 left-0 h-0.5 w-full origin-left scale-x-0 bg-secondary transition-transform duration-300 ${pathname === '/' ? 'scale-x-100' : 'group-hover:scale-x-100'}`}></span>
           </a>
+          <a href="/proyectos" className={`group inline-flex items-center gap-2 relative transition-colors ${pathname?.startsWith('/proyectos') ? 'text-secondary' : 'hover:text-secondary'}`}>
+            <IconGrid className="h-4 w-4" />
+            <span>{t('header.nav.projects')}</span>
+            <span aria-hidden className={`absolute -bottom-2 left-0 h-0.5 w-full origin-left scale-x-0 bg-secondary transition-transform duration-300 ${pathname?.startsWith('/proyectos') ? 'scale-x-100' : 'group-hover:scale-x-100'}`}></span>
+          </a>
+          <a href="/quien-soy" className={`group inline-flex items-center gap-2 relative transition-colors ${pathname === '/quien-soy' ? 'text-secondary' : 'hover:text-secondary'}`}>
+            <IconUser className="h-4 w-4" />
+            <span>{t('header.nav.about')}</span>
+            <span aria-hidden className={`absolute -bottom-2 left-0 h-0.5 w-full origin-left scale-x-0 bg-secondary transition-transform duration-300 ${pathname === '/quien-soy' ? 'scale-x-100' : 'group-hover:scale-x-100'}`}></span>
+          </a>
+        </nav>
 
-          <button aria-label="Cambiar tema" onClick={() => setDark((v) => !v)} className="rounded p-2 text-gray-700 hover:text-secondary dark:text-gray-200">
+        <div className="col-span-7 sm:col-span-5 md:col-span-5 ml-auto flex items-center justify-end gap-2 sm:gap-3">
+          <div className="relative hidden sm:flex items-center gap-1 ml-1 rounded-md border border-gray-200/60 dark:border-gray-800/60 bg-white/70 dark:bg-gray-900/40 px-1 py-0.5">
+            <span className="pointer-events-none absolute inset-y-0 left-0 my-0.5 h-[calc(100%-4px)] w-1/2 rounded bg-secondary/15 transition-transform duration-200 ease-out"
+              style={{ transform: `translateX(${locale === 'en' ? '100%' : '0'})` }}
+            />
+            <button className={`relative inline-flex items-center gap-1 rounded px-2 py-1 transition-colors ${locale === 'es' ? 'text-secondary' : 'hover:text-secondary'}`} onClick={() => setLocale('es')} aria-label="Español" title="Español">
+              <FlagES />
+              <span className="text-xs">ES</span>
+            </button>
+            <button className={`relative inline-flex items-center gap-1 rounded px-2 py-1 transition-colors ${locale === 'en' ? 'text-secondary' : 'hover:text-secondary'}`} onClick={() => setLocale('en')} aria-label="English" title="English">
+              <FlagEN />
+              <span className="text-xs">EN</span>
+            </button>
+          </div>
+
+          <button aria-label={t('header.actions.toggleThemeAria')} onClick={() => setDark((v) => !v)} className="rounded p-2 text-gray-700 hover:text-secondary dark:text-gray-200">
             {mounted ? (dark ? <IconSun className="h-4 w-4" /> : <IconMoon className="h-4 w-4" />) : <span className="block h-4 w-4" />}
           </button>
 
-          <button onClick={() => setContactOpen(true)} className="hidden sm:inline-flex items-center rounded-md border border-secondary/40 px-3 py-1.5 text-sm hover:bg-secondary/10 transition">Contacto</button>
+          <a href={cvUrl} download className="hidden md:inline-flex items-center gap-2 rounded-md border border-secondary/40 px-3 py-1.5 text-sm hover:bg-secondary/10 transition" title={t('header.actions.downloadCV')}>
+            <IconDownload className="h-4 w-4" />
+            <span>{t('header.actions.downloadCV')}</span>
+          </a>
 
-          <button className="inline-flex items-center justify-center rounded p-2 sm:hidden hover:bg-secondary/10" aria-label="Abrir menú" onClick={() => setOpen(true)}>
+          <button onClick={() => setContactOpen(true)} className="hidden sm:inline-flex items-center rounded-md bg-secondary/20 px-3 py-1.5 text-sm text-secondary hover:bg-secondary/30 transition">{t('header.actions.contact')}</button>
+
+          <button className="inline-flex items-center justify-center rounded p-2 md:hidden hover:bg-secondary/10" aria-label={t('header.actions.openMenuAria')} onClick={() => setOpen(true)}>
             <IconMenu className="h-5 w-5" />
           </button>
         </div>
@@ -177,32 +201,48 @@ export default function Header() {
         <div className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm sm:hidden" onClick={() => setOpen(false)}>
           <div className="relative z-[101] ml-auto h-full w-72 max-w-[85%] bg-white p-4 dark:bg-gray-950 animate-drawer-in" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between">
-              <span className="text-sm font-semibold">Menú</span>
-              <button aria-label="Cerrar" onClick={() => setOpen(false)} className="rounded p-2 hover:bg-secondary/10">
+              <span className="text-sm font-semibold">{t('header.mobile.menu')}</span>
+              <button aria-label={t('header.actions.closeAria')} onClick={() => setOpen(false)} className="rounded p-2 hover:bg-secondary/10">
                 <IconClose className="h-5 w-5" />
               </button>
             </div>
             <nav className="mt-6 grid gap-2 text-base">
               <a href="/" className="group inline-flex items-center gap-3 rounded-md px-2 py-2 hover:bg-secondary/10 animate-item-in" onClick={() => setOpen(false)}>
                 <IconHome2 className="h-5 w-5 text-gray-500 group-hover:text-secondary" />
-                <span>Inicio</span>
+                <span>{t('header.mobile.home')}</span>
               </a>
               <a href="/proyectos" className="group inline-flex items-center gap-3 rounded-md px-2 py-2 hover:bg-secondary/10 animate-item-in" onClick={() => setOpen(false)}>
                 <IconGrid className="h-5 w-5 text-gray-500 group-hover:text-secondary" />
-                <span>Proyectos</span>
+                <span>{t('header.nav.projects')}</span>
               </a>
               <a href="/quien-soy" className="group inline-flex items-center gap-3 rounded-md px-2 py-2 hover:bg-secondary/10 animate-item-in" onClick={() => setOpen(false)}>
                 <IconUser className="h-5 w-5 text-gray-500 group-hover:text-secondary" />
-                <span>¿Quién soy?</span>
+                <span>{t('header.nav.about')}</span>
               </a>
               <a href={cvUrl} download className="group inline-flex items-center gap-3 rounded-md px-2 py-2 hover:bg-secondary/10 animate-item-in" onClick={() => setOpen(false)}>
                 <IconDownload className="h-5 w-5 text-gray-500 group-hover:text-secondary" />
-                <span>Descargar CV</span>
+                <span>{t('header.actions.downloadCV')}</span>
               </a>
               <button className="group inline-flex items-center gap-3 rounded-md px-2 py-2 text-left hover:bg-secondary/10 animate-item-in" onClick={() => { setContactOpen(true); setOpen(false); }}>
                 <IconMail className="h-5 w-5 text-gray-500 group-hover:text-secondary" />
-                <span>Contacto</span>
+                <span>{t('header.actions.contact')}</span>
               </button>
+              <details className="group relative">
+                <summary className="flex items-center gap-2 rounded-md border border-gray-200/60 dark:border-gray-800/60 px-2 py-1 cursor-pointer select-none">
+                  <span className={`fi ${locale === 'es' ? 'fi-mx' : 'fi-us'}`} aria-hidden />
+                  <span className="text-sm">{locale === 'es' ? 'Español' : 'English'}</span>
+                </summary>
+                <div className="absolute left-0 mt-2 w-40 overflow-hidden rounded-md border border-gray-200 bg-white shadow-md dark:border-gray-800 dark:bg-gray-900">
+                  <button onClick={() => { setLocale('es'); setOpen(false); }} className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm hover:bg-secondary/10">
+                    <span className="fi fi-mx" aria-hidden />
+                    <span>Español</span>
+                  </button>
+                  <button onClick={() => { setLocale('en'); setOpen(false); }} className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm hover:bg-secondary/10">
+                    <span className="fi fi-us" aria-hidden />
+                    <span>English</span>
+                  </button>
+                </div>
+              </details>
             </nav>
             <div className="mt-6">
               <SocialLinks />

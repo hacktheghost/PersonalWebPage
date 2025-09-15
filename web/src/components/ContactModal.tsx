@@ -1,5 +1,6 @@
 "use client";
 import { getSiteData } from '@/lib/data';
+import { useI18n } from '@/i18n/ClientI18nProvider';
 import { createPortal } from 'react-dom';
 import { useEffect, useState } from 'react';
 
@@ -53,6 +54,7 @@ function IconCheck(props: React.SVGProps<SVGSVGElement>) {
 
 export default function ContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const data = getSiteData();
+  const { t } = useI18n();
   const [mounted, setMounted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
@@ -72,9 +74,9 @@ export default function ContactModal({ open, onClose }: { open: boolean; onClose
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <IconMail className="h-5 w-5 text-secondary" />
-              <h3 id="contact-title" className="text-base font-semibold">Contacto</h3>
+              <h3 id="contact-title" className="text-base font-semibold">{t('contactModal.title')}</h3>
             </div>
-            <button onClick={onClose} aria-label="Cerrar" className="rounded p-2 hover:bg-secondary/10">✕</button>
+            <button onClick={onClose} aria-label={t('header.actions.closeAria')} className="rounded p-2 hover:bg-secondary/10">✕</button>
           </div>
           <p className="mt-1 text-xs text-gray-600 dark:text-gray-300 flex items-center gap-1">
             <IconMapPin className="h-4 w-4" /> {data.personal.location}
@@ -85,12 +87,12 @@ export default function ContactModal({ open, onClose }: { open: boolean; onClose
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-2">
                 <IconMail className="h-4 w-4 text-secondary" />
-                <span className="text-gray-600 dark:text-gray-300">Email</span>
+                <span className="text-gray-600 dark:text-gray-300">{t('contactModal.labels.email')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <a className="truncate max-w-[60vw] sm:max-w-none text-secondary hover:underline" href={`mailto:${data.personal.contact.email}`}>{data.personal.contact.email}</a>
                 <button
-                  aria-label="Copiar email"
+                  aria-label={t('contactModal.actions.copyEmailAria')}
                   onClick={async () => { try { await navigator.clipboard.writeText(data.personal.contact.email); setCopiedEmail(true); setTimeout(() => setCopiedEmail(false), 1200); } catch {} }}
                   className="rounded p-1 hover:bg-secondary/10"
                 >
@@ -101,12 +103,12 @@ export default function ContactModal({ open, onClose }: { open: boolean; onClose
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-2">
                 <IconPhone className="h-4 w-4 text-secondary" />
-                <span className="text-gray-600 dark:text-gray-300">Teléfono</span>
+                <span className="text-gray-600 dark:text-gray-300">{t('contactModal.labels.phone')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <a className="truncate max-w-[60vw] sm:max-w-none text-secondary hover:underline" href={`tel:${data.personal.contact.phone}`}>{data.personal.contact.phone}</a>
                 <button
-                  aria-label="Copiar teléfono"
+                  aria-label={t('contactModal.actions.copyPhoneAria')}
                   onClick={async () => { try { await navigator.clipboard.writeText(data.personal.contact.phone); setCopiedPhone(true); setTimeout(() => setCopiedPhone(false), 1200); } catch {} }}
                   className="rounded p-1 hover:bg-secondary/10"
                 >
@@ -117,14 +119,14 @@ export default function ContactModal({ open, onClose }: { open: boolean; onClose
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-2">
                 <IconLinkedIn className="h-4 w-4 text-secondary" />
-                <span className="text-gray-600 dark:text-gray-300">LinkedIn</span>
+                <span className="text-gray-600 dark:text-gray-300">{t('contactModal.labels.linkedin')}</span>
               </div>
-              <a className="text-secondary hover:underline" href={`https://${data.personal.contact.linkedin}`} target="_blank" rel="noopener noreferrer">Ver perfil</a>
+              <a className="text-secondary hover:underline" href={`https://${data.personal.contact.linkedin}`} target="_blank" rel="noopener noreferrer">{t('contactModal.actions.viewProfile')}</a>
             </div>
           </div>
           <div className="mt-6 flex flex-col-reverse sm:flex-row sm:justify-end gap-2 sm:gap-3">
-            <button onClick={onClose} className="rounded-md bg-secondary/20 px-4 py-2 text-secondary hover:bg-secondary/30">Cerrar</button>
-            <a href={`mailto:${data.personal.contact.email}`} className="rounded-md border border-secondary/40 px-4 py-2 hover:bg-secondary/10">Enviar correo</a>
+            <button onClick={onClose} className="rounded-md bg-secondary/20 px-4 py-2 text-secondary hover:bg-secondary/30">{t('contactModal.close')}</button>
+            <a href={`mailto:${data.personal.contact.email}`} className="rounded-md border border-secondary/40 px-4 py-2 hover:bg-secondary/10">{t('contactModal.actions.sendEmail')}</a>
           </div>
         </div>
       </div>

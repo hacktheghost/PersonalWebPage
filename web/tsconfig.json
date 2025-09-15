@@ -25,6 +25,12 @@
       ],
       "@/app/*": [
         "src/app/*"
+      ],
+      "@/i18n/*": [
+        "src/i18n/*"
+      ],
+      "@/messages/*": [
+        "src/messages/*"
       ]
     },
     "incremental": true,
