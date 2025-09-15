@@ -10,12 +10,24 @@ type Props = Omit<React.ComponentProps<typeof Link>, 'href' | 'onClick'> & {
 
 export default function SmartLink({ href, children, onClick, ...rest }: Props) {
   const handleClick = useCallback<NonNullable<React.AnchorHTMLAttributes<HTMLAnchorElement>['onClick']>>((e) => {
-    // Evitar “trabas” si ya estamos en la misma ruta
+    // Evitar “trabas” si ya estamos en la misma ruta (no disparar spinner ni navegación)
     try {
-      const current = window.location.pathname + window.location.search + window.location.hash;
-      const target = typeof href === 'string' ? href : (href as any).pathname || '';
-      if (target && (target === window.location.pathname || target === current)) {
-        // no disparamos spinner ni navegación
+      const strip = (s: string) => s.replace(/\/+$/, '');
+      const currentUrl = new URL(window.location.href);
+      const rawTarget = typeof href === 'string' ? href : (href as any).pathname || '/';
+      const targetUrl = new URL(rawTarget, window.location.origin);
+      const curPath = strip(currentUrl.pathname);
+      const tgtPath = strip(targetUrl.pathname);
+      const curQuery = currentUrl.search;
+      const tgtQuery = targetUrl.search;
+      const curHash = currentUrl.hash;
+      const tgtHash = targetUrl.hash;
+      const samePath = curPath === tgtPath || (`${curPath}/` === tgtPath) || (curPath === `${tgtPath}/`);
+      const sameQuery = curQuery === tgtQuery; // bloquear solo si query igual
+      const sameHash = curHash === tgtHash;   // y hash igual
+      if (samePath && sameQuery && sameHash) {
+        e.preventDefault();
+        e.stopPropagation();
         onClick?.(e);
         return;
       }
