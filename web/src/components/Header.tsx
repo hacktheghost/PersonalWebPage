@@ -2,6 +2,7 @@
 import SocialLinks from '@/components/SocialLinks';
 import ContactModal from '@/components/ContactModal';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { getSiteData } from '@/lib/data';
@@ -142,30 +143,30 @@ export default function Header() {
   return (
     <header className={`sticky top-0 z-20 border-b border-transparent backdrop-blur transition-colors ${scrolled ? 'bg-white/70 dark:bg-gray-950/70 border-gray-200/60 dark:border-gray-800/60' : 'bg-transparent'}`}>
       <div className="mx-auto grid max-w-6xl grid-cols-12 items-center gap-2 px-4 py-3">
-        <a href="/" className="col-span-5 sm:col-span-3 justify-self-center relative inline-flex items-center gap-2.5 overflow-hidden rounded-lg px-3.5 py-1.5 text-base sm:text-lg font-bold tracking-wide text-gray-900 ring-1 ring-gray-200/60 backdrop-blur-sm bg-white/70 dark:text-gray-100 dark:ring-gray-800/60 dark:bg-gray-900/50">
+        <Link href="/" className="col-span-5 sm:col-span-3 justify-self-center relative inline-flex items-center gap-2.5 overflow-hidden rounded-lg px-3.5 py-1.5 text-base sm:text-lg font-bold tracking-wide text-gray-900 ring-1 ring-gray-200/60 backdrop-blur-sm bg-white/70 dark:text-gray-100 dark:ring-gray-800/60 dark:bg-gray-900/50">
           <IconHome className="h-6 w-6 text-secondary" />
           <span>Daniel Maynez</span>
           <span aria-hidden className="brand-sheen" />
-        </a>
+        </Link>
 
         <nav className="col-span-4 hidden md:flex items-center justify-center gap-6 text-sm">
-          <a href="/" className={`group inline-flex items-center gap-2 relative transition-colors ${pathname === '/' ? 'text-secondary' : 'hover:text-secondary'}`}>
+          <Link href="/" className={`group inline-flex items-center gap-2 relative transition-colors ${pathname === '/' ? 'text-secondary' : 'hover:text-secondary'}`}>
             <IconHome className="h-4 w-4" />
             <span className="relative">
               {t('header.mobile.home')}
             </span>
             <span aria-hidden className={`absolute -bottom-2 left-0 h-0.5 w-full origin-left scale-x-0 bg-secondary transition-transform duration-300 ${pathname === '/' ? 'scale-x-100' : 'group-hover:scale-x-100'}`}></span>
-          </a>
-          <a href="/proyectos" className={`group inline-flex items-center gap-2 relative transition-colors ${pathname?.startsWith('/proyectos') ? 'text-secondary' : 'hover:text-secondary'}`}>
+          </Link>
+          <Link href="/proyectos" className={`group inline-flex items-center gap-2 relative transition-colors ${pathname?.startsWith('/proyectos') ? 'text-secondary' : 'hover:text-secondary'}`}>
             <IconGrid className="h-4 w-4" />
             <span>{t('header.nav.projects')}</span>
             <span aria-hidden className={`absolute -bottom-2 left-0 h-0.5 w-full origin-left scale-x-0 bg-secondary transition-transform duration-300 ${pathname?.startsWith('/proyectos') ? 'scale-x-100' : 'group-hover:scale-x-100'}`}></span>
-          </a>
-          <a href="/quien-soy" className={`group inline-flex items-center gap-2 relative transition-colors ${pathname === '/quien-soy' ? 'text-secondary' : 'hover:text-secondary'}`}>
+          </Link>
+          <Link href="/quien-soy" className={`group inline-flex items-center gap-2 relative transition-colors ${pathname === '/quien-soy' ? 'text-secondary' : 'hover:text-secondary'}`}>
             <IconUser className="h-4 w-4" />
             <span>{t('header.nav.about')}</span>
             <span aria-hidden className={`absolute -bottom-2 left-0 h-0.5 w-full origin-left scale-x-0 bg-secondary transition-transform duration-300 ${pathname === '/quien-soy' ? 'scale-x-100' : 'group-hover:scale-x-100'}`}></span>
-          </a>
+          </Link>
         </nav>
 
         <div className="col-span-7 sm:col-span-5 md:col-span-5 ml-auto flex items-center justify-end gap-2 sm:gap-3">
@@ -210,18 +211,18 @@ export default function Header() {
               </button>
             </div>
             <nav className="mt-6 grid gap-2 text-base">
-              <a href="/" className="group inline-flex items-center gap-3 rounded-md px-2 py-2 hover:bg-secondary/10 animate-item-in" onClick={() => setOpen(false)}>
+              <Link href="/" className="group inline-flex items-center gap-3 rounded-md px-2 py-2 hover:bg-secondary/10 animate-item-in" onClick={() => setOpen(false)}>
                 <IconHome2 className="h-5 w-5 text-gray-500 group-hover:text-secondary" />
                 <span>{t('header.mobile.home')}</span>
-              </a>
-              <a href="/proyectos" className="group inline-flex items-center gap-3 rounded-md px-2 py-2 hover:bg-secondary/10 animate-item-in" onClick={() => setOpen(false)}>
+              </Link>
+              <Link href="/proyectos" className="group inline-flex items-center gap-3 rounded-md px-2 py-2 hover:bg-secondary/10 animate-item-in" onClick={() => setOpen(false)}>
                 <IconGrid className="h-5 w-5 text-gray-500 group-hover:text-secondary" />
                 <span>{t('header.nav.projects')}</span>
-              </a>
-              <a href="/quien-soy" className="group inline-flex items-center gap-3 rounded-md px-2 py-2 hover:bg-secondary/10 animate-item-in" onClick={() => setOpen(false)}>
+              </Link>
+              <Link href="/quien-soy" className="group inline-flex items-center gap-3 rounded-md px-2 py-2 hover:bg-secondary/10 animate-item-in" onClick={() => setOpen(false)}>
                 <IconUser className="h-5 w-5 text-gray-500 group-hover:text-secondary" />
                 <span>{t('header.nav.about')}</span>
-              </a>
+              </Link>
               <a href={cvUrl} download className="group inline-flex items-center gap-3 rounded-md px-2 py-2 hover:bg-secondary/10 animate-item-in" onClick={() => setOpen(false)}>
                 <IconDownload className="h-5 w-5 text-gray-500 group-hover:text-secondary" />
                 <span>{t('header.actions.downloadCV')}</span>

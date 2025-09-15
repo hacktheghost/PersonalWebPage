@@ -5,27 +5,28 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "npm run build && node -e \"require('fs').writeFileSync('out/.nojekyll','')\" && gh-pages -d out --dotfiles -f -m \"deploy: publish static export\"",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@tsparticles/engine": "^3.0.0",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.0.0",
     "framer-motion": "^11.0.0",
     "lenis": "^1.0.34",
     "next": "^15.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "@tsparticles/react": "^3.0.0",
-    "@tsparticles/engine": "^3.0.0",
-    "@tsparticles/slim": "^3.0.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.16",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.4.7",
     "typescript": "^5.5.0"
   }
 }
-

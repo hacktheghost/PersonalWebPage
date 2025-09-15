@@ -1,4 +1,5 @@
 import { getSiteData } from '@/lib/data';
+import type React from 'react';
 
 function IconCloud(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -36,7 +37,7 @@ export default function TechBadges() {
   const data = getSiteData();
   const cc = data.coreCompetencies;
 
-  const groups: Array<{ key: keyof typeof cc; title: string; Icon: (p: any) => JSX.Element }> = [
+  const groups: Array<{ key: keyof typeof cc; title: string; Icon: (p: any) => React.ReactElement }> = [
     { key: 'Infrastructure & Networking', title: 'Redes e Infraestructura', Icon: IconNetwork },
     { key: 'Cloud & Data Analytics', title: 'Nube y Analítica', Icon: IconCloud },
     { key: 'Enterprise Systems & ERP', title: 'Sistemas Empresariales & ERP', Icon: IconERP },

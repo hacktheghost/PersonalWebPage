@@ -2,6 +2,7 @@
 import { useI18n } from '@/i18n/ClientI18nProvider';
 import { useLocalizedSiteData } from '@/i18n/useSiteData';
 import TransText from '@/i18n/TransText';
+import Link from 'next/link';
 
 export default function ProjectsClient() {
   const { t, locale } = useI18n();
@@ -13,7 +14,7 @@ export default function ProjectsClient() {
       <p className="mt-2 text-gray-600 dark:text-gray-300"><TransText k="projects.list.subtitle" /></p>
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((p) => (
-          <a key={p.name} href={`/proyectos/${encodeURIComponent(p.name)}`} className="group overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 hover:border-secondary/60 transition">
+          <Link key={p.name} href={`/proyectos/${encodeURIComponent(p.name)}`} className="group overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 hover:border-secondary/60 transition">
             <div className="aspect-video w-full bg-gray-100 dark:bg-gray-800">
               <img loading="lazy" src="/placeholder.webp" alt={t('projects.common.projectPreviewAlt')} className="h-full w-full object-cover opacity-90 group-hover:opacity-100 transition" />
             </div>
@@ -29,7 +30,7 @@ export default function ProjectsClient() {
                 ))}
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </main>

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
-import type { ISourceOptions, Container, Engine } from '@tsparticles/engine';
+import type { ISourceOptions } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
 
 export default function ParticlesBackground() {
@@ -49,7 +49,7 @@ export default function ParticlesBackground() {
       events: {
         onHover: { enable: !reduceMotion, mode: 'grab' },
         onClick: { enable: false, mode: 'push' },
-        resize: true,
+        resize: { enable: true },
       },
       modes: {
         grab: { distance: 140, links: { opacity: 0.25 } },
@@ -62,16 +62,11 @@ export default function ParticlesBackground() {
     // no-op, placeholder for future dynamic controls
   }, []);
 
-  const init = async (_engine: Engine) => {};
-  const loaded = async (_container?: Container) => {};
-
   if (!engineReady) return null;
   return (
     <Particles
       id="tsparticles"
       key={key}
-      init={init}
-      loaded={loaded}
       options={options}
       className="pointer-events-none"
       style={{ position: 'fixed', inset: 0, zIndex: 0 }}

@@ -8,6 +8,7 @@ import ProfilePhoto from '@/components/ProfilePhoto';
 import { useI18n } from '@/i18n/ClientI18nProvider';
 import { useLocalizedSiteData } from '@/i18n/useSiteData';
 import TransText from '@/i18n/TransText';
+import Link from 'next/link';
 
 export default function HomePage() {
   const data = getSiteData();
@@ -43,7 +44,7 @@ export default function HomePage() {
             const evt = new CustomEvent('open-contact-modal');
             window.dispatchEvent(evt);
           }} className="inline-flex items-center rounded-md bg-secondary/20 px-4 py-2 text-secondary hover:bg-secondary/30 transition">{t('home.cta.contact')}</button>
-          <a href="/proyectos" className="inline-flex items-center rounded-md border border-secondary/40 px-4 py-2 hover:bg-secondary/10 transition">{t('home.cta.viewProjects')}</a>
+          <Link href="/proyectos" className="inline-flex items-center rounded-md border border-secondary/40 px-4 py-2 hover:bg-secondary/10 transition">{t('home.cta.viewProjects')}</Link>
         </motion.div>
       </section>
 
@@ -51,7 +52,7 @@ export default function HomePage() {
         <h2 className="text-2xl sm:text-3xl font-semibold"><TransText k="home.featured.title" /></h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {stars.map((p) => (
-            <a key={p.name} href={`/proyectos/${encodeURIComponent(p.name)}`} className="group overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 hover:border-secondary/60 transition">
+            <Link key={p.name} href={`/proyectos/${encodeURIComponent(p.name)}`} className="group overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 hover:border-secondary/60 transition">
               <div className="aspect-video w-full bg-gray-100 dark:bg-gray-800">
                 <img loading="lazy" src="/placeholder.webp" alt={t('projects.common.projectPreviewAlt')} className="h-full w-full object-cover opacity-90 group-hover:opacity-100 transition" />
               </div>
@@ -67,7 +68,7 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
