@@ -3,7 +3,9 @@ import { slugifyProjectName } from '@/lib/slug';
 import { getProjectCoverByName, getProjectGalleryByName } from '@/lib/projectImages';
 import ProjectCover from '@/components/ProjectCover';
 import ProjectGallery from '@/components/ProjectGallery';
+import TechPill from '@/components/TechPill';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 
 export function generateStaticParams() {
   return getProjects().map((p) => ({ slug: slugifyProjectName(p.name) }));
@@ -26,6 +28,18 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-16">
+      <Script id="ld-json-project" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: project.name_es ?? project.name,
+          applicationCategory: 'BusinessApplication',
+          operatingSystem: 'Web',
+          url: `https://hacktheghost.github.io/proyectos/${slug}`,
+          image: gallery.length ? gallery.map((g) => `https://hacktheghost.github.io${g}`) : ['https://hacktheghost.github.io/whoami.jpg'],
+          description: project.businessLogic,
+        })}
+      </Script>
       <div className="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800">
         <ProjectCover name={project.name} alt="Imagen del proyecto" />
       </div>

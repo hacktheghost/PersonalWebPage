@@ -8,14 +8,18 @@ import LocaleAnimatedShell from '@/i18n/LocaleAnimatedShell';
 import RouteProgress from '@/components/RouteProgress';
 import GlobalSpinner from '@/components/GlobalSpinner';
 import ClientI18nProvider from '@/i18n/ClientI18nProvider';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Daniel Flores — IT Leader & Technology Manager',
-  description: 'Portafolio profesional: manufactura, nube, datos, ERP, seguridad y automatización.',
+  description:
+    'Portafolio profesional de Daniel A. Flores (Senior IT Manager): proyectos en infraestructura y redes Cisco, nube (Azure), datos (SQL/Power BI), ERP (Sage X3, SAP), automatización industrial y visión por computador. Experiencia liderando equipos y transformaciones digitales en manufactura.',
   metadataBase: new URL('https://hacktheghost.github.io'),
+  alternates: { canonical: 'https://hacktheghost.github.io/' },
   openGraph: {
     title: 'Daniel Flores — IT Leader & Technology Manager',
-    description: 'Portafolio profesional: manufactura, nube, datos, ERP, seguridad y automatización.',
+    description:
+      'Portafolio profesional de Daniel A. Flores (Senior IT Manager): proyectos en infraestructura y redes Cisco, nube (Azure), datos (SQL/Power BI), ERP (Sage X3, SAP), automatización industrial y visión por computador. Experiencia liderando equipos y transformaciones digitales en manufactura.',
     url: 'https://hacktheghost.github.io/',
     siteName: 'Daniel Flores',
     images: [
@@ -27,7 +31,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Daniel Flores — IT Leader & Technology Manager',
-    description: 'Portafolio profesional: manufactura, nube, datos, ERP, seguridad y automatización.',
+    description:
+      'Portafolio profesional de Daniel A. Flores (Senior IT Manager): proyectos en infraestructura y redes Cisco, nube (Azure), datos (SQL/Power BI), ERP (Sage X3, SAP), automatización industrial y visión por computador. Experiencia liderando equipos y transformaciones digitales en manufactura.',
     images: ['/whoami.jpg'],
   },
 };
@@ -43,6 +48,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className="min-h-dvh bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+        {/* JSON-LD Organization/Person */}
+        <Script id="ld-json-org" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Daniel A. Flores',
+            url: 'https://hacktheghost.github.io/',
+            sameAs: [
+              'https://www.linkedin.com/in/daniel-maynez-b143b4153',
+              'https://github.com/hacktheghost',
+            ],
+            jobTitle: 'Senior IT Manager & Technology Leader',
+            worksFor: { '@type': 'Organization', name: 'COFICAB Group' },
+          })}
+        </Script>
         <ClientI18nProvider>
           <LocaleAnimatedShell>
             <GlobalSpinner />
