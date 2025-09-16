@@ -34,7 +34,10 @@
     }
   },
   "footer": {
-    "copy": "© {year} Daniel A. Flores — Disponible para proyectos y consultoría."
+    "copy": "© {year} Daniel A. Flores — Disponible para proyectos y consultoría.",
+    "cta": {
+      "useRepo": "¿Quieres una página así? Usa mi repo"
+    }
   },
   "home": {
     "cta": {

@@ -119,6 +119,7 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    if (!mounted) return; // evita resetear el tema antes de leer localStorage
     const root = document.documentElement;
     if (dark) {
       root.classList.add('dark');
@@ -131,7 +132,7 @@ export default function Header() {
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('themechange', { detail: { dark } }));
     }
-  }, [dark]);
+  }, [dark, mounted]);
 
   // Abrir modal desde eventos globales (p.ej., botón de la Home)
   useEffect(() => {
