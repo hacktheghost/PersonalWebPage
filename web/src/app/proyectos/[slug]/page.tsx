@@ -1,5 +1,8 @@
 import { getProjects } from '@/lib/data';
 import { slugifyProjectName } from '@/lib/slug';
+import { getProjectCoverByName, getProjectGalleryByName } from '@/lib/projectImages';
+import ProjectCover from '@/components/ProjectCover';
+import ProjectGallery from '@/components/ProjectGallery';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -19,13 +22,17 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
   const project = getProjects().find((p) => slugifyProjectName(p.name) === slug);
   if (!project) return <main className="mx-auto max-w-3xl px-4 py-16">No encontrado</main>;
 
+  const gallery = getProjectGalleryByName(project.name);
+
   return (
     <main className="mx-auto max-w-3xl px-4 py-16">
       <div className="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800">
-        <div className="aspect-video w-full bg-gray-100 dark:bg-gray-800">
-          <img loading="lazy" src="/placeholder.webp" alt="Imagen del proyecto" className="h-full w-full object-cover" />
-        </div>
+        <ProjectCover name={project.name} alt="Imagen del proyecto" />
       </div>
+
+      {gallery.length > 1 ? (
+        <ProjectGallery images={gallery} altPrefix="Galería del proyecto" className="mt-4" />
+      ) : null}
       <h1 className="mt-6 text-3xl font-semibold">{project.name_es ?? project.name}</h1>
       <p className="mt-2 text-gray-600 dark:text-gray-300">{project.role}</p>
       <section className="mt-6 space-y-2">
@@ -50,7 +57,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
         <h2 className="text-xl font-semibold">Tecnologías</h2>
         <div className="mt-2 flex flex-wrap gap-2">
           {project.technologies.map((t: string) => (
-            <span key={t} className="rounded bg-gray-100 dark:bg-gray-800 px-2 py-0.5 text-xs text-gray-700 dark:text-gray-200">{t}</span>
+            <TechPill key={t} label={t} />
           ))}
         </div>
       </section>

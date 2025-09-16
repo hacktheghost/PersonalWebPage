@@ -7,7 +7,8 @@
     "contact": {
       "phone": "+52 81 3528 2911",
       "email": "danielfloresmaynez@gmail.com",
-      "linkedin": "www.linkedin.com/in/daniel-maynez-b143b4153"
+      "linkedin": "www.linkedin.com/in/daniel-maynez-b143b4153",
+      "github": "github.com/hacktheghost"
     }
   },
   "professionalSummary": "Accomplished Senior IT Manager with over 11 years of progressive leadership experience in the Information Technology sector, specializing in strategic infrastructure management, digital transformation, and cross-functional team leadership. Proven track record of managing multi-million dollar IT budgets, leading international teams, and driving operational efficiency across global manufacturing environments. Expert in vendor relationship management, change management, and implementing complex IT infrastructures including ERP systems (Sage X3, SAP), cloud computing (Microsoft Azure), and data analytics platforms (Power BI, SQL). Demonstrated ability to bridge business requirements with technical solutions while mentoring technical teams and managing organizational transitions. Strong background in performance management, budget administration, and employee development with certifications in strategic management and data-driven decision making.",
@@ -321,22 +322,21 @@
         "status": "Operativo"
       },
       {
-        "name": "Web Dependency Analyzer",
-        "name_es": "FortiGate",
+        "name": "Electrical Monitoring",
+        "name_es": "Electrical Monitoring",
         "role": "Backend/CLI Python",
         "technologies": [
           "Python",
-          "Selenium (opcional)",
-          "resolución DNS",
-          "salida JSON/CSV"
+          "modbus/tcp",
+          "exportes CSV"
         ],
-        "businessLogic": "Descubrimiento y clasificación de dependencias web para endurecimiento y reglas de firewall.",
-        "architecture": "CLI con modos de salida múltiples; base de servicios conocidos; escaneo profundo opcional.",
+        "businessLogic": "Monitoreo y registro de parámetros eléctricos desde medidores industriales, con generación de reportes.",
+        "architecture": "Servicio/CLI para consulta periódica de dispositivos y almacenamiento de métricas; exportación a CSV.",
         "achievements": [
-          "Categorización automática (analytics, CDN, pagos, etc.)",
-          "Generación de artefactos listos para consumo (CSV/JSON/formato FortiGate)"
+          "Recolección confiable de métricas eléctricas",
+          "Reportes listos para análisis"
         ],
-        "status": "En desarrollo (core avanzado)"
+        "status": "Operativo"
       },
       {
         "name": "Cisco Switch Analyzer",

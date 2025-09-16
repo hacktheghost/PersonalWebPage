@@ -1,5 +1,12 @@
 import { getSiteData } from '@/lib/data';
 import { useI18n } from '@/i18n/ClientI18nProvider';
+function IconGitHub(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden focusable={false} {...props}>
+      <path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.3-3.5-1.3-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.8-.8 1.8-1.1.1-.7.4-1 .7-1.2-2.3-.3-4.7-1.1-4.7-5 0-1.1.4-2 1.1-2.7-.1-.2-.5-1.3.1-2.7 0 0 .9-.3 2.8 1.1.8-.2 1.7-.3 2.6-.3.9 0 1.8.1 2.6.3 1.9-1.4 2.8-1.1 2.8-1.1.6 1.4.2 2.5.1 2.7.7.7 1.1 1.6 1.1 2.7 0 3.9-2.4 4.7-4.7 5 .4.3.8.9.8 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/>
+    </svg>
+  );
+}
 
 function IconLinkedIn(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -27,7 +34,7 @@ function IconPhone(props: React.SVGProps<SVGSVGElement>) {
 
 export default function SocialLinks({ className = '' }: { className?: string }) {
   const data = getSiteData();
-  const { email, linkedin, phone } = data.personal.contact;
+  const { email, linkedin, phone, github } = data.personal.contact;
   const { t } = useI18n();
   return (
     <nav aria-label={t('social.aria.nav')} className={`flex items-center gap-3 ${className}`}>
@@ -40,6 +47,11 @@ export default function SocialLinks({ className = '' }: { className?: string }) 
       <a href={`tel:${phone}`} aria-label={t('social.aria.phone')} className="text-gray-600 hover:text-secondary dark:text-gray-300">
         <IconPhone className="h-5 w-5" />
       </a>
+      {github ? (
+        <a href={`https://${github}`} aria-label={t('social.aria.github')} className="text-gray-600 hover:text-secondary dark:text-gray-300" target="_blank" rel="noopener noreferrer">
+          <IconGitHub className="h-5 w-5" />
+        </a>
+      ) : null}
     </nav>
   );
 }

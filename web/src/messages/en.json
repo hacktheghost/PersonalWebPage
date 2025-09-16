@@ -106,6 +106,7 @@
       "nav": "Social links",
       "email": "Email",
       "linkedin": "LinkedIn",
+      "github": "GitHub",
       "phone": "Phone"
     }
   },
@@ -334,14 +335,14 @@
           "status": "Operational"
         },
         {
-          "name": "Web Dependency Analyzer",
-          "name_es": "FortiGate",
+          "name": "Electrical Monitoring",
+          "name_es": "Electrical Monitoring",
           "role": "Backend/CLI Python",
-          "technologies": ["Python", "Selenium (optional)", "DNS resolution", "JSON/CSV output"],
-          "businessLogic": "Discovery and classification of web dependencies for hardening and firewall rules.",
-          "architecture": "CLI with multiple output modes; knowledge base of known services; optional deep scan.",
-          "achievements": ["Automatic categorization (analytics, CDN, payments, etc.)", "Artifacts ready for consumption (CSV/JSON/FortiGate format)"] ,
-          "status": "In development (advanced core)"
+          "technologies": ["Python", "modbus/tcp", "CSV exports"],
+          "businessLogic": "Monitoring and logging of electrical parameters from industrial meters, with report generation.",
+          "architecture": "Service/CLI for periodic device polling and metric storage; CSV export.",
+          "achievements": ["Reliable collection of electrical metrics", "Ready-to-analyze reports"],
+          "status": "Operational"
         },
         {
           "name": "Cisco Switch Analyzer",

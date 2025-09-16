@@ -28,6 +28,14 @@ function IconLinkedIn(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+function IconGitHub(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden focusable={false} {...props}>
+      <path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.3-3.5-1.3-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.8-.8 1.8-1.1.1-.7.4-1 .7-1.2-2.3-.3-4.7-1.1-4.7-5 0-1.1.4-2 1.1-2.7-.1-.2-.5-1.3.1-2.7 0 0 .9-.3 2.8 1.1.8-.2 1.7-.3 2.6-.3.9 0 1.8.1 2.6.3 1.9-1.4 2.8-1.1 2.8-1.1.6 1.4.2 2.5.1 2.7.7.7 1.1 1.6 1.1 2.7 0 3.9-2.4 4.7-4.7 5 .4.3.8.9.8 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/>
+    </svg>
+  );
+}
+
 function IconMapPin(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden focusable={false} {...props}>
@@ -123,6 +131,15 @@ export default function ContactModal({ open, onClose }: { open: boolean; onClose
               </div>
               <a className="text-secondary hover:underline" href={`https://${data.personal.contact.linkedin}`} target="_blank" rel="noopener noreferrer">{t('contactModal.actions.viewProfile')}</a>
             </div>
+            {data.personal.contact.github ? (
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <IconGitHub className="h-4 w-4 text-secondary" />
+                  <span className="text-gray-600 dark:text-gray-300">GitHub</span>
+                </div>
+                <a className="text-secondary hover:underline" href={`https://${data.personal.contact.github}`} target="_blank" rel="noopener noreferrer">{t('contactModal.actions.viewProfile')}</a>
+              </div>
+            ) : null}
           </div>
           <div className="mt-6 flex flex-col-reverse sm:flex-row sm:justify-end gap-2 sm:gap-3">
             <button onClick={onClose} className="rounded-md bg-secondary/20 px-4 py-2 text-secondary hover:bg-secondary/30">{t('contactModal.close')}</button>

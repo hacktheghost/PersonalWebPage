@@ -10,6 +10,9 @@ import { useLocalizedSiteData } from '@/i18n/useSiteData';
 import TransText from '@/i18n/TransText';
 import SmartLink from '@/components/SmartLink';
 import { slugifyProjectName } from '@/lib/slug';
+import ProjectCover from '@/components/ProjectCover';
+import TechPill from '@/components/TechPill';
+import { getProjectCoverByName } from '@/lib/projectImages';
 
 export default function HomePage() {
   const data = getSiteData();
@@ -21,7 +24,7 @@ export default function HomePage() {
     'IT Asset Inventory',
     'Sistema de Prevención de Colisiones',
     'Gestión de Inventarios Kanban y Seguimiento de Bobinas',
-    'SQL Reporter',
+    'Electrical Monitoring',
   ]);
   const stars = localized.projects.portfolio.filter((p) => starNames.has(p.name));
 
@@ -54,9 +57,7 @@ export default function HomePage() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {stars.map((p) => (
             <SmartLink key={p.name} href={`/proyectos/${slugifyProjectName(p.name)}`} className="group overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 hover:border-secondary/60 transition">
-              <div className="aspect-video w-full bg-gray-100 dark:bg-gray-800">
-                <img loading="lazy" src="/placeholder.webp" alt={t('projects.common.projectPreviewAlt')} className="h-full w-full object-cover opacity-90 group-hover:opacity-100 transition" />
-              </div>
+              <ProjectCover name={p.name} alt={t('projects.common.projectPreviewAlt')} />
               <div className="p-4">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold group-hover:text-secondary transition">{locale === 'es' ? (p.name_es ?? p.name) : p.name}</h3>
@@ -65,7 +66,7 @@ export default function HomePage() {
                 <p className="mt-2 line-clamp-3 text-sm text-gray-600 dark:text-gray-300">{p.businessLogic}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {p.technologies.slice(0, 4).map((t) => (
-                    <span key={t} className="rounded bg-gray-100 dark:bg-gray-800 px-2 py-0.5 text-xs text-gray-700 dark:text-gray-200">{t}</span>
+                    <TechPill key={t} label={t} />
                   ))}
                 </div>
               </div>
