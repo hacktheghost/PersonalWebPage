@@ -16,7 +16,8 @@ Sitio personal construido con Next.js (App Router), TypeScript y Tailwind CSS. I
 ---
 
 ### ✨ Demo
-- Producción: añade aquí tu URL de despliegue (por ejemplo, `https://tu-dominio.com`).
+- Producción: https://hacktheghost.github.io/
+- Repositorio: https://github.com/hacktheghost/hacktheghost.github.io
 
 ---
 
@@ -27,6 +28,16 @@ Sitio personal construido con Next.js (App Router), TypeScript y Tailwind CSS. I
 - **Animaciones**: Framer Motion 11
 - **UX**: Lenis (smooth scrolling)
 - **Efectos**: tsParticles (slim)
+
+---
+
+### 💡 Características clave
+- Portadas de proyectos dinámicas con carrusel suave (crossfade, pausa al hover, soporte táctil).
+- Galería por proyecto con lightbox, navegación por teclado y swipe en móviles.
+- Pills de tecnologías con iconos y colores por stack.
+- i18n (ES/EN) con animación de cambio de idioma.
+- SEO listo: OpenGraph/Twitter Cards, JSON‑LD (Person y SoftwareApplication), `sitemap.xml` y `robots.txt` estáticos.
+- Tema claro/oscuro persistente; UI responsiva con Tailwind.
 
 ---
 
@@ -153,6 +164,14 @@ npm start
   - Importa el repositorio y selecciona `web/` como raíz del proyecto.
   - Variables de entorno (si aplica) en el panel de Vercel.
 
+Opcional — GitHub Pages (export estático):
+```bash
+cd web
+npm run build   # genera /out
+# publica la carpeta out/ en GitHub Pages (branch "gh-pages" o /docs)
+```
+Configura Pages en el repositorio para servir el contenido generado.
+
 ---
 
 ### 🧰 Mantenimiento
@@ -177,3 +196,7 @@ npm start
 
 ### 🤝 Contribuciones
 Abre un issue o PR con sugerencias/mejoras. ¡Gracias por aportar!
+
+---
+
+Daniel Flores - IT Life
