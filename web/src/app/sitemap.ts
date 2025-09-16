@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+export const dynamic = 'force-static';
 import { getProjects } from '@/lib/data';
 import { slugifyProjectName } from '@/lib/slug';
 
