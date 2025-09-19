@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://hacktheghost.github.io/sitemap.xml
